@@ -92,6 +92,6 @@ public class Question : MonoBehaviour
         desmarcar(m_p4);
         desmarcar(m_p5);
 
-        m_inicio.volver();
+        //m_inicio.volver();
     }
 }
