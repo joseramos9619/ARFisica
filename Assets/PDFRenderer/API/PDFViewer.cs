@@ -936,10 +936,28 @@ namespace Paroxe.PdfRenderer
         String tem="";
 
         public void tem1(){
-            tem="guia_TG.pdf";
+            tem="tema1.pdf";
         }
         public void tem2(){
-            tem="2.pdf";
+            tem="tema2.pdf";
+        }
+        public void tem3(){
+            tem="tema3.pdf";
+        }
+        public void tem4(){
+            tem="tema4.pdf";
+        }
+        public void tem5(){
+            tem="tema5.pdf";
+        }
+        public void tem6(){
+            tem="tema6.pdf";
+        }
+        public void tem7(){
+            tem="tema7.pdf";
+        }
+        public void tem8(){
+            tem="tema8.pdf";
         }
 
         public string GetFileLocation()
