@@ -10,8 +10,9 @@ using UnityEngine.UI;
 using Paroxe.PdfRenderer.WebGL;
 using System.IO;
 
+
 namespace Paroxe.PdfRenderer
-{
+{   
     /// <summary>
     /// PDFViewer is an Unity UI component that allow you to visualize PDF Document.
     /// </summary>
@@ -932,6 +933,15 @@ namespace Paroxe.PdfRenderer
             }
         }
 
+        String tem="";
+
+        public void tem1(){
+            tem="guia_TG.pdf";
+        }
+        public void tem2(){
+            tem="2.pdf";
+        }
+
         public string GetFileLocation()
         {
             switch (m_FileSource)
@@ -951,10 +961,12 @@ namespace Paroxe.PdfRenderer
                     if (string.IsNullOrEmpty(m_Folder))
                         folder = "";
 
+                    m_FileName = tem;
                     string location = ("/" + folder + m_FileName).Replace("//", "/")
                         .Replace(@"\\", @"/")
                         .Replace(@"\", @"/");
                     return Application.streamingAssetsPath + location;
+                    tem="";
 
                 case FileSourceType.PersistentData:
                     folder = m_Folder + "/";
@@ -1397,7 +1409,7 @@ namespace Paroxe.PdfRenderer
                     }
                     else
                     {
-	                    holder.m_Page.GetComponent<PDFViewerPage>().ClearCache();
+                        holder.m_Page.GetComponent<PDFViewerPage>().ClearCache();
                     }
                 }
             }
@@ -1717,7 +1729,7 @@ namespace Paroxe.PdfRenderer
                 SetProgress(www.progress);
                 yield return null;
             }
-            
+
             if (!m_DownloadCanceled && string.IsNullOrEmpty(www.error) && www.isDone)
             {
                 SetProgress(1.0f);
@@ -1917,7 +1929,7 @@ namespace Paroxe.PdfRenderer
                 if (m_GraphicRaycaster == null)
                     return;
             }
-            
+
             int validTouchCount = 0;
 
             if (Input.touchCount >= 1)
@@ -2315,14 +2327,14 @@ namespace Paroxe.PdfRenderer
 
             if (Math.Abs(m_ZoomFactor - m_ZoomToGo) > 0.001f)
             {
-	            m_ZoomToGo = Mathf.Clamp(m_ZoomToGo, m_MinZoomFactor, m_MaxZoomFactor);
-	            m_ZoomFactor = Mathf.Lerp(m_ZoomFactor, m_ZoomToGo, Time.deltaTime * 15.0f);
+                m_ZoomToGo = Mathf.Clamp(m_ZoomToGo, m_MinZoomFactor, m_MaxZoomFactor);
+                m_ZoomFactor = Mathf.Lerp(m_ZoomFactor, m_ZoomToGo, Time.deltaTime * 15.0f);
 
                 m_UpdateChangeDelay = m_DelayAfterZoomingBeforeUpdate;
             }
             else
             {
-	            m_ZoomFactor = m_ZoomToGo;
+                m_ZoomFactor = m_ZoomToGo;
             }
 
             bool zoomHasChanged = m_PreviousZoom != 0.0f && Math.Abs(m_PreviousZoom - m_ZoomFactor) > float.Epsilon;
