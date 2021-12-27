@@ -12,6 +12,8 @@ public class Inicio : MonoBehaviour
     [SerializeField] private GameObject m_examen = null;
     [SerializeField] private GameObject m_fondo = null;
     [SerializeField] private GameObject m_tema = null;
+    [SerializeField] private GameObject m_guiaActive = null;
+    [SerializeField] private GameObject m_ExaActive = null;
 
     
 
@@ -27,6 +29,8 @@ public class Inicio : MonoBehaviour
         m_examen.SetActive(false);
         m_scan.SetActive(false);
         m_tema.SetActive(false);
+        m_guiaActive.SetActive(true);
+        m_ExaActive.SetActive(false);
     }
 
     public void examen()
@@ -35,6 +39,8 @@ public class Inicio : MonoBehaviour
         m_examen.SetActive(true);
         m_scan.SetActive(false);
         m_tema.SetActive(false);
+        m_guiaActive.SetActive(false);
+        m_ExaActive.SetActive(true);
     }
 
     public void volver(){
@@ -47,6 +53,8 @@ public class Inicio : MonoBehaviour
         m_examen.SetActive(false);
         m_scan.SetActive(false);
         m_tema.SetActive(true);
+        m_guiaActive.SetActive(false);
+        m_ExaActive.SetActive(false);
 
     }
 
