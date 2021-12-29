@@ -91,7 +91,7 @@ public class Manager : MonoBehaviour
             m_mens.text = response.mens;
 
             if(m_loginUserInput.text==response.mens){
-                m_mensUser.text= "Usuario: "+response.mens;
+                m_mensUser.text= response.mens;
                 vercont();
                 limpiar();
             }
