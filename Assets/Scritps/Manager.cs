@@ -55,6 +55,7 @@ public class Manager : MonoBehaviour
     {
         m_loginUi.SetActive(false);
         m_registerUi.SetActive(true);
+        limpiar();
     }
 
     public void veruserui()
