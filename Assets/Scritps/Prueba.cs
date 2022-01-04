@@ -31,10 +31,10 @@ public class Prueba : MonoBehaviour
 
     int num = 0;
     string[] res = new string[5];
-    string[,] sol = new string[4,5] {{ "A", "B", "C", "A", "C" },
+    string[,] sol = new string[4,5] {{ "A", "B", "C", "A", "A" },
+                                     { "A", "B", "C", "A", "B" },
                                      { "A", "B", "C", "A", "C" },
-                                     { "A", "B", "C", "A", "C" },
-                                     { "A", "B", "C", "A", "C" }};
+                                     { "A", "B", "C", "A", "A" }};
 
     public void Guia()
     {
@@ -158,9 +158,16 @@ public class Prueba : MonoBehaviour
     }
 
     public void Cerrar()
-    {
+    {   
+        if(m_text.text!= null && m_text.text!= "Completar todas las preguntas"){
+            m_exame.SetActive(false);
+            m_opcion.SetActive(true);
+            m_barExame.SetActive(false);
+        }
+        else{   
         m_alertUi.SetActive(false);
-        m_text.text = "";
+        m_text.text = null;
+        }
     }
 
 }
