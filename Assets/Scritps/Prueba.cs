@@ -31,7 +31,7 @@ public class Prueba : MonoBehaviour
 
     int num = 0;
     string[] res = new string[5];
-    string[,] sol = new string[4,5] {{ "A", "B", "C", "A", "A" },
+    string[,] sol = new string[4, 5] {{ "A", "B", "C", "A", "A" },
                                      { "A", "B", "C", "A", "B" },
                                      { "A", "B", "C", "A", "C" },
                                      { "A", "B", "C", "A", "A" }};
@@ -51,7 +51,8 @@ public class Prueba : MonoBehaviour
     }
 
     public void cargar(int opc)
-    {   num = opc;
+    {
+        num = opc;
         if (opc == 1)
         {
             m_pre1.sprite = Resources.Load<Sprite>("Preguntas/1");
@@ -133,7 +134,7 @@ public class Prueba : MonoBehaviour
         if (p1 != null & p2 != null & p3 != null & p4 != null & p5 != null)
         {
             int r = 0;
-            
+
             res[0] = p1.name;
             res[1] = p2.name;
             res[2] = p3.name;
@@ -142,7 +143,7 @@ public class Prueba : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                if (res[i] == sol[(num-1),i])
+                if (res[i] == sol[(num - 1), i])
                 {
                     r++;
                 }
@@ -153,21 +154,42 @@ public class Prueba : MonoBehaviour
         else
         {
             m_alertUi.SetActive(true);
-            m_text.text = "Completar todas las preguntas";
+            m_text.text = "Responada todas las preguntas por favor";
         }
     }
 
     public void Cerrar()
-    {   
-        if(m_text.text!= null && m_text.text!= "Completar todas las preguntas"){
+    {
+        if (m_text.text != null && m_text.text != "Responada todas las preguntas por favor" && m_text.text != "Complete el examen para salir")
+        {
             m_exame.SetActive(false);
             m_opcion.SetActive(true);
             m_barExame.SetActive(false);
+            desmarcar(m_p1);
+            desmarcar(m_p2);
+            desmarcar(m_p3);
+            desmarcar(m_p4);
+            desmarcar(m_p5);
         }
-        else{   
-        m_alertUi.SetActive(false);
-        m_text.text = null;
+        else
+        {
+            m_alertUi.SetActive(false);
+            m_text.text = null;
         }
     }
 
+    public void salir()
+    {
+        Toggle p1 = GetSelectedToggle(m_p1);
+        Toggle p2 = GetSelectedToggle(m_p2);
+        Toggle p3 = GetSelectedToggle(m_p3);
+        Toggle p4 = GetSelectedToggle(m_p4);
+        Toggle p5 = GetSelectedToggle(m_p5);
+
+        if (p1 == null & p2 == null & p3 == null & p4 == null & p5 == null)
+        {
+            m_alertUi.SetActive(true);
+            m_text.text = "Complete el examen para salir";
+        }
+    }
 }
